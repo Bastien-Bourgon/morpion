@@ -1,0 +1,172 @@
+<!--
+Morpion
+-->
+<!DOCTYPE html>
+
+<html>
+<head>
+<style>
+button{
+background_color: white;
+color: black;
+width: 30px;
+border: 2px solid #000000;
+text-decoration: none;
+}
+button:disabled
+{
+cursor: not-allowed;
+}
+
+</head>
+</style>
+<body onload="Init()"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+	var player=1; //auquel des deux joueur est-ce le tour?
+    function Init() {
+	for (var x = 0;x<3;x++)
+	{
+	var linebreak = $("<br>");
+	$("body").append(linebreak);
+	for (var y = 0;y<3;y++)
+	{
+	 var tile = $("<button></button>",{id:"X"+x+y});
+	 tile.text("[ ]");
+	 tile.click(function(){SetTile(this.id)});	 
+	 $("body").append(tile);
+	}
+	}
+	}
+	function SetTile(tileid)
+	{
+	if (player % 2 == 0)
+	{	
+	$("#"+tileid.toString()).text("X");
+	}
+	else
+	{
+	$("#"+tileid.toString()).text("O");
+	}
+	player++;
+	CheckVictory();
+	$("#"+tileid.toString()).prop("disabled",true);
+	}
+	function CheckVictory() //Conditions de victoires toutes codées en dur parce que why not
+	{
+	if($("#X00").text()=="O" && $("#X11").text()=="O" && $("#X22").text()=="O")
+	{
+	$("body").after("Player 1 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X02").text()=="O" && $("#X11").text()=="O" && $("#X20").text()=="O")
+	{
+	$("body").after("Player 1 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X00").text()=="O" && $("#X01").text()=="O" && $("#X02").text()=="O")
+	{
+	$("body").after("Player 1 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X10").text()=="O" && $("#X11").text()=="O" && $("#X12").text()=="O")
+	{
+	$("body").after("Player 1 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X20").text()=="O" && $("#X21").text()=="O" && $("#X22").text()=="O")
+	{
+	$("body").after("Player 1 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X00").text()=="O" && $("#X10").text()=="O" && $("#X20").text()=="O")
+	{
+	$("body").after("Player 1 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X01").text()=="O" && $("#X11").text()=="O" && $("#X21").text()=="O")
+	{
+	$("body").after("Player 1 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+
+	else if($("#X02").text()=="O" && $("#X12").text()=="O" && $("#X22").text()=="O")
+	{
+	$("body").after("Player 1 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	else if($("#X00").text()=="X" && $("#X11").text()=="X" && $("#X22").text()=="X")
+	{
+	$("body").after("Player 2 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X02").text()=="X" && $("#X11").text()=="X" && $("#X20").text()=="X")
+	{
+	$("body").after("Player 2 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X00").text()=="X" && $("#X01").text()=="X" && $("#X02").text()=="X")
+	{
+	$("body").after("Player 2 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X10").text()=="X" && $("#X11").text()=="X" && $("#X12").text()=="X")
+	{
+	$("body").after("Player 2 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X20").text()=="X" && $("#X21").text()=="X" && $("#X22").text()=="X")
+	{
+	$("body").after("Player 2 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X00").text()=="X" && $("#X10").text()=="X" && $("#X20").text()=="X")
+	{
+	$("body").after("Player 2 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	
+	else if($("#X01").text()=="X" && $("#X11").text()=="X" && $("#X21").text()=="X")
+	{
+	$("body").after("Player 2 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+
+	else if($("#X02").text()=="X" && $("#X12").text()=="X" && $("#X22").text()=="X")
+	{
+	$("body").after("Player 2 wins");
+	$(":button").prop("disabled",true);
+	setTimeout(function(){window.location.reload();}, 3000);
+	}
+	}
+    </script>
+Morpion
+<p></p>	
+</body>
+</html>
